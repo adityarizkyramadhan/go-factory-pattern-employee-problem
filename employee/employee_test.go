@@ -51,6 +51,12 @@ var _ = Describe("Employee", func() {
 			Expect(empl.GetBonus()).To(Equal(50.0))
 		})
 
+		It("should return the correct name", func() {
+			empl, err := employee.GetEmployeeFactory("staff")
+			Expect(err).NotTo(HaveOccurred())
+			Expect(empl.GetName()).To(Equal("Staff"))
+		})
+
 	})
 
 	Context("Intern Object", func() {
@@ -71,6 +77,12 @@ var _ = Describe("Employee", func() {
 			empl, err := employee.GetEmployeeFactory("intern")
 			Expect(err).NotTo(HaveOccurred())
 			Expect(empl.GetBonus()).To(Equal(0.0))
+		})
+
+		It("should return the correct name", func() {
+			empl, err := employee.GetEmployeeFactory("intern")
+			Expect(err).NotTo(HaveOccurred())
+			Expect(empl.GetName()).To(Equal("Intern"))
 		})
 	})
 
@@ -93,6 +105,12 @@ var _ = Describe("Employee", func() {
 			empl, err := employee.GetEmployeeFactory("director")
 			Expect(err).NotTo(HaveOccurred())
 			Expect(empl.GetBonus()).To(Equal(1500.0))
+		})
+
+		It("should return the correct name", func() {
+			empl, err := employee.GetEmployeeFactory("director")
+			Expect(err).NotTo(HaveOccurred())
+			Expect(empl.GetName()).To(Equal("Director"))
 		})
 	})
 
